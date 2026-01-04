@@ -37,7 +37,7 @@ int main() {
     std::cout << "Collecting data samples...\n";
 
     for (int i = 0; i < N; ++i) {
-        // Simulating a normal 50Hz vibration + a "problem" 120Hz vibration
+       
         double t = (double)i / 1000.0;
         time_domain[i] = 0.4 * sin(2 * PI * 50 * t) + 0.6 * sin(2 * PI * 120 * t);
     }
@@ -57,9 +57,9 @@ int main() {
     
     for (int i = 0; i < N / 2; ++i) {
         double magnitude = std::abs(data[i]) / N;
-        double frequency = i * (1000.0 / N); // Mapping index to frequency
+        double frequency = i * (1000.0 / N); 
 
-        if (magnitude > 0.1) { // Filter out low-level noise
+        if (magnitude > 0.1) {
             std::cout << "Freq: " << frequency << " Hz | Mag: " << magnitude;
             
             if (magnitude > THRESHOLD) {
